@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enthiran - AI Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>🤖 Enthiran</h1>
+                <p class="subtitle">Your AI Programming Assistant</p>
+            </div>
+            <button id="clearBtn" class="clear-btn">🗑️ Clear Chat</button>
+        </header>
+
+        <div class="chat-container" id="chatContainer">
+            <div class="welcome-message">
+                <h2>👋 Welcome to Enthiran!</h2>
+                <p>I'm your AI assistant, ready to help you with:</p>
+                <ul>
+                    <li>💻 Programming and coding questions</li>
+                    <li>🐛 Debugging and error fixing</li>
+                    <li>📚 Explanations and tutorials</li>
+                    <li>💡 Algorithm and data structure help</li>
+                </ul>
+                <p><strong>Start typing your question below!</strong></p>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <textarea 
+                id="userInput" 
+                placeholder="Ask me anything about programming..."
+                rows="1"
+            ></textarea>
+            <button id="sendBtn" class="send-btn">
+                <span id="sendIcon">➤</span>
+                <span id="loadingIcon" class="hidden">⏳</span>
+            </button>
+        </div>
+
+        <footer>
+            <p>Powered by Google Gemini AI </p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
