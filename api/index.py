@@ -3,22 +3,26 @@ import google.generativeai as genai
 import os
 import json
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Get the base directory (parent of 'api' folder)
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load environment variables from .env file
+load_dotenv(BASE_DIR / '.env')
 
 app = Flask(__name__, 
             template_folder=str(BASE_DIR / 'templates'),
             static_folder=str(BASE_DIR / 'static'))
 
 # Configure Gemini API
-GEMINI_API_KEY = os.environ.get('AIzaSyAGBmDHT6jsLJcLWry8P7yQRB8f1bnbZ4k')
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
 if GEMINI_API_KEY:
     genai.configure(api_key=GEMINI_API_KEY)
 
 # Initialize the model
 def get_model():
-    return genai.GenerativeModel('gemini-1.5-flash')
+    return genai.GenerativeModel('gemini-2.0-flash')
 
 # Store conversation history (in production, use a database)
 conversations = {}

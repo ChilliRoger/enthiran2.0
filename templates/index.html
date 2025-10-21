@@ -3,30 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enthiran - AI Assistant</title>
+    <title>Enthiran - AI Programming Assistant</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
         <header>
             <div class="header-content">
-                <h1>🤖 Enthiran</h1>
-                <p class="subtitle">Your AI Programming Assistant</p>
+                <div class="logo">ENTHIRAN</div>
+                <p class="subtitle">AI Programming Assistant</p>
             </div>
-            <button id="clearBtn" class="clear-btn">🗑️ Clear Chat</button>
+            <button id="clearBtn" class="clear-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2M10 11v6M14 11v6"/>
+                </svg>
+                Clear Chat
+            </button>
         </header>
 
         <div class="chat-container" id="chatContainer">
             <div class="welcome-message">
-                <h2>👋 Welcome to Enthiran!</h2>
-                <p>I'm your AI assistant, ready to help you with:</p>
-                <ul>
-                    <li>💻 Programming and coding questions</li>
-                    <li>🐛 Debugging and error fixing</li>
-                    <li>📚 Explanations and tutorials</li>
-                    <li>💡 Algorithm and data structure help</li>
-                </ul>
-                <p><strong>Start typing your question below!</strong></p>
+                <div class="welcome-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                    </svg>
+                </div>
+                <h2>Welcome to Enthiran</h2>
+                <p class="welcome-desc">Your intelligent assistant for trespassing firewalls</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <span>Code Solutions</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+                            </svg>
+                        </div>
+                        <span>Debug Help</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+                            </svg>
+                        </div>
+                        <span>Tutorials</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m8.66-13.66l-4.24 4.24m-6.84 0L5.34 5.34m13.32 13.32l-4.24-4.24m-6.84 0l-4.24 4.24"/>
+                            </svg>
+                        </div>
+                        <span>Algorithms</span>
+                    </div>
+                </div>
+                <p class="start-prompt">Start typing your question below</p>
             </div>
         </div>
 
@@ -37,13 +75,15 @@
                 rows="1"
             ></textarea>
             <button id="sendBtn" class="send-btn">
-                <span id="sendIcon">➤</span>
-                <span id="loadingIcon" class="hidden">⏳</span>
+                <svg id="sendIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                <div id="loadingIcon" class="hidden loading-spinner"></div>
             </button>
         </div>
 
         <footer>
-            <p>Powered by Google Gemini AI </p>
+            <p>Powered by Google Gemini AI</p>
         </footer>
     </div>
 

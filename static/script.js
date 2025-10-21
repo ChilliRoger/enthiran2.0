@@ -83,14 +83,14 @@ async function sendMessage() {
             addMessage(data.response, 'bot');
         } else {
             // Show error
-            addMessage('❌ Error: ' + (data.error || 'Something went wrong'), 'bot');
+            addMessage('Error: ' + (data.error || 'Something went wrong'), 'bot');
         }
     } catch (error) {
         // Remove typing indicator
         removeTypingIndicator(typingId);
         
         // Show error
-        addMessage('❌ Network error. Please check your connection.', 'bot');
+        addMessage('Network error. Please check your connection.', 'bot');
         console.error('Error:', error);
     } finally {
         // Reset loading state
@@ -200,15 +200,48 @@ async function clearChat() {
         // Clear chat container
         chatContainer.innerHTML = `
             <div class="welcome-message">
-                <h2>👋 Welcome to Enthiran!</h2>
-                <p>I'm your AI assistant, ready to help you with:</p>
-                <ul>
-                    <li>💻 Programming and coding questions</li>
-                    <li>🐛 Debugging and error fixing</li>
-                    <li>📚 Explanations and tutorials</li>
-                    <li>💡 Algorithm and data structure help</li>
-                </ul>
-                <p><strong>Start typing your question below!</strong></p>
+                <div class="welcome-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                    </svg>
+                </div>
+                <h2>Welcome to Enthiran</h2>
+                <p class="welcome-desc">Your intelligent assistant for programming and development</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <span>Code Solutions</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+                            </svg>
+                        </div>
+                        <span>Debug Help</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+                            </svg>
+                        </div>
+                        <span>Tutorials</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m8.66-13.66l-4.24 4.24m-6.84 0L5.34 5.34m13.32 13.32l-4.24-4.24m-6.84 0l-4.24 4.24"/>
+                            </svg>
+                        </div>
+                        <span>Algorithms</span>
+                    </div>
+                </div>
+                <p class="start-prompt">Start typing your question below</p>
             </div>
         `;
     } catch (error) {
@@ -224,7 +257,7 @@ window.addEventListener('load', async function() {
         const data = await response.json();
         
         if (!data.api_configured) {
-            addMessage('⚠️ API key not configured. Please add your Gemini API key to environment variables.', 'bot');
+            addMessage('Warning: API key not configured. Please add your Gemini API key to environment variables.', 'bot');
         }
     } catch (error) {
         console.error('Health check failed:', error);

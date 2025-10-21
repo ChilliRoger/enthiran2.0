@@ -13,7 +13,7 @@ A free, AI-powered chatbot built with Flask and Google Gemini API, designed to h
 ## Tech Stack
 
 - **Backend:** Flask (Python)
-- **AI Model:** Google Gemini 1.5 Flash
+- **AI Model:** Google Gemini 2.0 Flash
 - **Frontend:** HTML, CSS, JavaScript
 - **Hosting:** Vercel
 
